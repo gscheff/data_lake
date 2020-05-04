@@ -13,19 +13,12 @@ from pyspark.sql.types import StringType, IntegerType, DoubleType, TimestampType
 config = configparser.ConfigParser()
 config.read('dl.cfg')
 
-os.environ['AWS_ACCESS_KEY_ID']=config['AWS']['AWS_ACCESS_KEY_ID']
-os.environ['AWS_SECRET_ACCESS_KEY']=config['AWS']['AWS_SECRET_ACCESS_KEY']
-
-# "com.amazonaws:aws-java-sdk-1.7.4",
 
 def create_spark_session():
     spark = (
         SparkSession
         .builder
-        .config(
-            "spark.jars.packages",
-            "org.apache.hadoop:hadoop-aws:2.7.3",
-        )
+        .appName('sparkify')
         .getOrCreate()
         )
     return spark
