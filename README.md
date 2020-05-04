@@ -27,11 +27,13 @@ using AWS.
 ## Usage
 
     1. Run a aws spark cluster:
+
     ```bash
     bash start_spark_cluster.sh
     ```
 
     3. Then start the ETL pipeline:
+
     ```bash
     spark-submit --master local etl.py
     ```
